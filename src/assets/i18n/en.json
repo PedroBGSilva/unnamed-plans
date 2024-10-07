@@ -1,0 +1,11 @@
+{
+    "LOGIN": {
+        "EMAIL": "Email", 
+        "EMAIL_PLACEHOLDER": "Enter your email here",
+        "INVALID_EMAIL": "Invalid email",
+        "PASSWORD": "Password",
+        "PASSWORD_PLACEHOLDER": "Enter your password here",
+        "LOGIN": "Log In",
+        "INVALID": "Invalid credentials"
+    }
+}
