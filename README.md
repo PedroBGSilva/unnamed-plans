@@ -1,12 +1,7 @@
-install nvm-windows 
-  https://github.com/coreybutler/nvm-windows/releases
+install nvm-windows (https://github.com/coreybutler/nvm-windows/releases)
 
-install nodeJS
-  nvm install 20.18
-  nvm use 20.18
+install nodeJS (nvm install 20.18)
 
-install ionic 
-  npm install -g @ionic/cli
+install ionic (npm install -g @ionic/cli)
 
-run
-  ionic -o serve
+run (ionic -o serve)
