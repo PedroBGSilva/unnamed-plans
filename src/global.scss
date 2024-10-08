@@ -39,15 +39,40 @@
 .row {
     display: flex;
     flex-direction: row;
-    align-items: center;
-    justify-content: center;
-    height: 100%;
 }
 
 .col {
     display: flex;
     flex-direction: column;
+    height: 100%;
+}
+
+.centered {
+    display: flex;
     align-items: center;
     justify-content: center;
-    height: 100%;
+}
+
+.right {
+    display: flex;
+    align-items: center;
+    justify-content: right;
+}
+
+.pl {
+    padding-left: 5px;
+}
+
+.pt {
+    padding-top: 5px;
+}
+
+.smooth-border-top {
+    border-top-left-radius: 5px;
+    border-top-right-radius: 5px;
+}
+
+.smooth-border-bottom {
+    border-bottom-right-radius: 5px;
+    border-bottom-left-radius: 5px;
 }
