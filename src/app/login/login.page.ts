@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { AuthService } from '../services/auth.service';
+import { AuthService } from '../auth.service';
 import { TranslateService } from '@ngx-translate/core';
 import { Router } from '@angular/router';
 
@@ -12,7 +12,9 @@ import { Router } from '@angular/router';
 export class LoginPage implements OnInit {
   email: string = '';
   password: string = '';
+  toastMessage: string = '';
   showToast: boolean = false;
+  resetting: boolean = false;
   dismissButton = [{ text: '', role: 'cancel' }];
 
   constructor(
@@ -30,7 +32,23 @@ export class LoginPage implements OnInit {
       .then(() => {
         this.router.navigate(['/home']);
       }).catch(() => {
+        this.toastMessage = this.translateService.instant('LOGIN.INVALID');
         this.showToast = true;
       })
+  }
+
+  toggleReset() {
+    this.resetting = true;
+  }
+
+  resetPassword(email: string) {
+    this.authService.resetPassword(email);
+    this.toastMessage = this.translateService.instant('LOGIN.EMAIL_SENT');
+    this.showToast = true;
+    this.resetting = false;
+  }
+
+  back() {
+    this.resetting = false;
   }
 }

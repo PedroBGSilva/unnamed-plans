@@ -7,9 +7,11 @@
         "PASSWORD": "Password",
         "PASSWORD_PLACEHOLDER": "Enter your password here",
         "PASSWORD_RESET": "Forgot your password?",
+        "RESET_PASSWORD": "Reset password",
         "LOGIN": "Log In",
         "INVALID": "Invalid credentials",
         "SIGN_UP": "Sign Up",
-        "NO_ACCOUNT": "Don't have an account?"
+        "NO_ACCOUNT": "Don't have an account?",
+        "EMAIL_SENT": "Verify your email"
     }
 }
