@@ -1,11 +1,15 @@
 {
+    "DISMISS": "dismiss",
     "LOGIN": {
         "EMAIL": "Email", 
         "EMAIL_PLACEHOLDER": "Enter your email here",
         "INVALID_EMAIL": "Invalid email",
         "PASSWORD": "Password",
         "PASSWORD_PLACEHOLDER": "Enter your password here",
+        "PASSWORD_RESET": "Forgot your password?",
         "LOGIN": "Log In",
-        "INVALID": "Invalid credentials"
+        "INVALID": "Invalid credentials",
+        "SIGN_UP": "Sign Up",
+        "NO_ACCOUNT": "Don't have an account?"
     }
 }

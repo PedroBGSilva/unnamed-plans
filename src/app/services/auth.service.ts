@@ -15,7 +15,7 @@ export class AuthService {
                     resolve(result);
                 }).catch((error) => {
                     reject(error);
-                })
+                });
         })
     }
 }
