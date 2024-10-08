@@ -1,26 +1,44 @@
-<ion-content>
-  <div class="col centered">
-    <form #loginForm="ngForm">
-      <ion-item class="smooth-border-top">
-        <ion-input type="email" label="{{ 'LOGIN.EMAIL' | translate }}" labelPlacement="stacked"
-          placeholder="{{ 'LOGIN.EMAIL_PLACEHOLDER' | translate }}" [(ngModel)]="email" name="email"
-          errorText="{{ 'LOGIN.INVALID_EMAIL' | translate }}" email autocomplete="email" required>
-        </ion-input>
-      </ion-item>
-      <ion-item class="smooth-border-bottom">
-        <ion-input type="password" label="{{ 'LOGIN.PASSWORD' | translate }}" labelPlacement="stacked"
-          placeholder="{{ 'LOGIN.PASSWORD_PLACEHOLDER' | translate }}" [(ngModel)]="password" name="password"
-          autocomplete="current-password" required>
-          <ion-input-password-toggle slot="end"></ion-input-password-toggle>
-        </ion-input>
-      </ion-item>
-      <p><a href="#" class="right">{{ 'LOGIN.PASSWORD_RESET' | translate }}</a></p>
-      <ion-button type="submit" class="ion-padding" expand="block" [disabled]="loginForm.invalid" (click)="login()">
-        {{ 'LOGIN.LOGIN' | translate }}
+<ion-header *ngIf="resetting">
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-button (click)="back()">
+        <ion-icon name="arrow-back"></ion-icon>
       </ion-button>
-      <p class="centered">{{ 'LOGIN.NO_ACCOUNT' | translate }}<a href="#" class="pl">{{ 'LOGIN.SIGN_UP' | translate }}</a></p>
-    </form>
+    </ion-buttons>
+  </ion-toolbar>
+</ion-header>
+<ion-content>
+  <div class="centered h-100">
+    <ng-content *ngIf="!resetting; else elseBlock">
+      <form #loginForm="ngForm" class="w-80">
+        <ion-item class="smooth-border-top">
+          <ion-input type="email" label="{{ 'LOGIN.EMAIL' | translate }}" labelPlacement="stacked"
+            placeholder="{{ 'LOGIN.EMAIL_PLACEHOLDER' | translate }}" [(ngModel)]="email" name="email"
+            errorText="{{ 'LOGIN.INVALID_EMAIL' | translate }}" email autocomplete="email" required>
+          </ion-input>
+        </ion-item>
+        <ion-item class="smooth-border-bottom">
+          <ion-input type="password" label="{{ 'LOGIN.PASSWORD' | translate }}" labelPlacement="stacked"
+            placeholder="{{ 'LOGIN.PASSWORD_PLACEHOLDER' | translate }}" [(ngModel)]="password" name="password"
+            autocomplete="current-password" required>
+            <ion-input-password-toggle slot="end"></ion-input-password-toggle>
+          </ion-input>
+        </ion-item>
+        <p><a (click)="toggleReset()" class="right clickable">{{ 'LOGIN.PASSWORD_RESET' | translate }}</a></p>
+        <div class="col centered pt">
+          <ion-button type="submit" shape="round" [disabled]="loginForm.invalid" (click)="login()" class="w-50">
+            {{ 'LOGIN.LOGIN' | translate }}
+          </ion-button>
+          <p>{{ 'LOGIN.NO_ACCOUNT' | translate }}
+            <a (click)="true" class="pl clickable">{{ 'LOGIN.SIGN_UP' | translate }}</a>
+          </p>
+        </div>
+      </form>
+    </ng-content>
+    <ng-template #elseBlock>
+      <app-reset-password (resetPassword)="resetPassword($event)" class="w-80"></app-reset-password>
+    </ng-template>
   </div>
-  <ion-toast [isOpen]="showToast" message="{{ 'LOGIN.INVALID' | translate }}" [duration]="2000"
-    (didDismiss)="showToast = false" [buttons]="dismissButton"></ion-toast>
+  <ion-toast [isOpen]="showToast" [message]="toastMessage" [duration]="2000" [buttons]="dismissButton"
+    (didDismiss)="showToast = false"></ion-toast>
 </ion-content>
