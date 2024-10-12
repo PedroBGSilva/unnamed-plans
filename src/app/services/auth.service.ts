@@ -4,23 +4,33 @@ import {
   signInWithEmailAndPassword,
   setPersistence,
   browserLocalPersistence,
-  inMemoryPersistence,
-  sendPasswordResetEmail
+  sendPasswordResetEmail,
+  onAuthStateChanged,
+  User
 } from 'firebase/auth';
+import { BehaviorSubject } from 'rxjs';
 
 @Injectable({
   providedIn: 'root'
 })
 export class AuthService {
   private auth = getAuth();
+  private userSubject = new BehaviorSubject<User | null>(null);
 
-  constructor() { }
+  constructor() {
+    onAuthStateChanged(getAuth(), (user) => { this.userSubject.next(user); });
+  }
 
   login(email: string, password: string) {
     return new Promise((resolve, reject) => {
-      signInWithEmailAndPassword(this.auth, email, password)
-        .then((result) => {
-          resolve(result);
+      setPersistence(this.auth, browserLocalPersistence)
+        .then(() => {
+          signInWithEmailAndPassword(this.auth, email, password)
+            .then((result) => {
+              resolve(result);
+            }).catch((error) => {
+              reject(error);
+            });
         }).catch((error) => {
           reject(error);
         });
@@ -38,22 +48,7 @@ export class AuthService {
     });
   }
 
-  login(email: string, password: string) {
-
-    return setPersistence(this.auth, browserLocalPersistence)
-      .then(() => {
-
-        // In memory persistence will be applied to the signed in Google user
-        // even though the persistence was set to 'none' and a page redirect
-        // occurred.
-        return signInWithEmailAndPassword(this.auth, email, password)
-
-
-      })
-      .catch((error) => {
-        // Handle Errors here.
-        const errorCode = error.code;
-        const errorMessage = error.message;
-      });
+  get user$() {
+    return this.userSubject.asObservable();
   }
 }
