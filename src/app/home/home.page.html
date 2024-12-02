@@ -1,20 +1,42 @@
-<ion-header [translucent]="true">
-  <ion-toolbar>
-    <ion-title>
-      User
-    </ion-title>
-  </ion-toolbar>
-</ion-header>
-
-<ion-content [fullscreen]="true">
-  <ion-header collapse="condense">
-    <ion-toolbar>
-      <ion-title size="large">Blank</ion-title>
-    </ion-toolbar>
-  </ion-header>
-
-  <div id="container">
-    <strong>{{ user.email }}</strong>
-    <p>Start with Ionic <a target="_blank" rel="noopener noreferrer" href="https://ionicframework.com/docs/components">UI Components</a></p>
-  </div>
-</ion-content>
+<ion-tabs>
+  <!-- BAR -->
+  <ion-tab-bar slot="bottom">
+    <ion-tab-button tab="feed">
+      <ion-icon name="reader-outline"></ion-icon>
+      {{ 'FEED.FEED' | translate }}
+    </ion-tab-button>
+    <ion-tab-button tab="communities">
+      <ion-icon name="people-outline"></ion-icon>
+      {{ 'COMMUNITIES.COMMUNITIES' | translate }}
+    </ion-tab-button>
+    <ion-tab-button tab="profile">
+      <ion-icon name="person-circle-outline"></ion-icon>
+      {{ 'PROFILE.PROFILE' | translate }}
+    </ion-tab-button>
+    <ion-tab-button tab="settings">
+      <ion-icon name="settings-outline"></ion-icon>
+      {{ 'SETTINGS.SETTINGS' | translate }}
+    </ion-tab-button>
+  </ion-tab-bar>
+  <!-- CONTENT -->
+  <ion-tab tab="feed">
+    <div id="feed-page">
+      <!-- <feed></feed> -->
+    </div>
+  </ion-tab>
+  <ion-tab tab="communities">
+    <div id="communities-page">
+      <!-- <communities></communities> -->
+    </div>
+  </ion-tab>
+  <ion-tab tab="profile">
+    <div id="profile-page">
+      <!-- <profile></profile> -->
+    </div>
+  </ion-tab>
+  <ion-tab tab="settings">
+    <ion-content>
+      <app-settings></app-settings>
+    </ion-content>
+  </ion-tab>
+</ion-tabs>
