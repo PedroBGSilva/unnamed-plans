@@ -8,10 +8,25 @@
         "PASSWORD_PLACEHOLDER": "Enter your password here",
         "PASSWORD_RESET": "Forgot your password?",
         "RESET_PASSWORD": "Reset password",
-        "LOGIN": "Log In",
+        "LOGIN": "Login",
         "INVALID": "Invalid credentials",
         "SIGN_UP": "Sign Up",
         "NO_ACCOUNT": "Don't have an account?",
         "EMAIL_SENT": "Verify your email"
+    },
+    "FEED": {
+        "FEED": "Feed"
+    },
+    "COMMUNITIES": {
+        "COMMUNITIES": "Communities"
+    },
+    "PROFILE": {
+        "PROFILE": "Profile"
+    },
+    "SETTINGS": {
+        "SETTINGS": "Settings",
+        "LOGOUT": "Logout",
+        "LOGGED_OUT": "Successful Log Out",
+        "LOGOUT_ERROR": "Error logging out, please try again"
     }
 }

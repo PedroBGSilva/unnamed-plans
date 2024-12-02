@@ -2,6 +2,7 @@ import { Injectable } from '@angular/core';
 import {
   getAuth,
   signInWithEmailAndPassword,
+  signOut,
   setPersistence,
   browserLocalPersistence,
   sendPasswordResetEmail,
@@ -35,6 +36,17 @@ export class AuthService {
           reject(error);
         });
     });
+  }
+
+  logout() {
+    return new Promise((resolve, reject) => {
+      signOut(this.auth)
+        .then((result) => {
+          resolve(result);
+        }).catch((error) => {
+          reject(error);
+        });
+    })
   }
 
   resetPassword(email: string) {
