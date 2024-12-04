@@ -1,9 +1,7 @@
 # Unnamed Plans
-
 Description.
 
 ## Installation
-
 - install [nvm-windows](https://github.com/coreybutler/nvm-windows/releases)
 
 - install nodeJS
@@ -15,6 +13,5 @@ Description.
   npm install -g @ionic/cli
 
 ## Run
-
 ```bash
 ionic serve
