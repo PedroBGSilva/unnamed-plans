@@ -8,9 +8,9 @@
   </ion-toolbar>
 </ion-header>
 <ion-content>
-  <div class="centered h-100">
+  <div class="d-flex align-items-center justify-content-center h-100">
     <ng-content *ngIf="!resetting; else elseBlock">
-      <form #loginForm="ngForm" class="w-80">
+      <form #loginForm="ngForm" class="w-75">
         <ion-item class="smooth-border-top">
           <ion-input type="email" label="{{ 'LOGIN.EMAIL' | translate }}" labelPlacement="stacked"
             placeholder="{{ 'LOGIN.EMAIL_PLACEHOLDER' | translate }}" [(ngModel)]="email" name="email"
@@ -24,19 +24,21 @@
             <ion-input-password-toggle slot="end"></ion-input-password-toggle>
           </ion-input>
         </ion-item>
-        <p><a (click)="toggleReset()" class="right clickable">{{ 'LOGIN.PASSWORD_RESET' | translate }}</a></p>
-        <div class="col centered pt">
-          <ion-button type="submit" shape="round" [disabled]="loginForm.invalid" (click)="login()" class="w-50">
+        <a (click)="toggleReset()" class="d-flex justify-content-end clickable pt-2">
+          {{ 'LOGIN.PASSWORD_RESET' | translate }}
+        </a>
+        <div class="d-flex flex-column align-items-center">
+          <ion-button type="submit" shape="round" [disabled]="loginForm.invalid" (click)="login()" class="pt-3 w-50">
             {{ 'LOGIN.LOGIN' | translate }}
           </ion-button>
-          <p>{{ 'LOGIN.NO_ACCOUNT' | translate }}
-            <a (click)="true" class="pl clickable">{{ 'LOGIN.SIGN_UP' | translate }}</a>
+          <p class="pt-2">{{ 'LOGIN.NO_ACCOUNT' | translate }}
+            <a (click)="true" class="clickable">{{ 'LOGIN.SIGN_UP' | translate }}</a>
           </p>
         </div>
       </form>
     </ng-content>
     <ng-template #elseBlock>
-      <app-reset-password (resetPassword)="resetPassword($event)" class="w-80"></app-reset-password>
+      <app-reset-password (resetPassword)="resetPassword($event)" class="w-75"></app-reset-password>
     </ng-template>
   </div>
   <ion-toast [isOpen]="showToast" [message]="toastMessage" [duration]="2000" [buttons]="dismissButton"
