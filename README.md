@@ -12,6 +12,10 @@ Description.
   ```bash
   npm install -g @ionic/cli
 
+- install dependencies
+  ```bash
+  npm install
+
 ## Run
 ```bash
 ionic serve
