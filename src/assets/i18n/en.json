@@ -21,7 +21,10 @@
         "COMMUNITIES": "Communities"
     },
     "PROFILE": {
-        "PROFILE": "Profile"
+        "PROFILE": "Profile",
+        "PHONE": "Phone number",
+        "BIRTHDAY": "Birthday",
+        "EDIT": "Edit"
     },
     "SETTINGS": {
         "SETTINGS": "Settings",
