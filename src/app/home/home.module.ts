@@ -7,6 +7,7 @@ import { HomePage } from './home.page';
 import { HomePageRoutingModule } from './home-routing.module';
 import { TranslateModule } from '@ngx-translate/core';
 import { SettingsComponent } from '../settings/settings.component';
+import { ProfileComponent } from '../profile/profile.component';
 
 
 @NgModule({
@@ -19,7 +20,8 @@ import { SettingsComponent } from '../settings/settings.component';
   ],
   declarations: [
     HomePage,
-    SettingsComponent
+    SettingsComponent,
+    ProfileComponent
   ]
 })
 export class HomePageModule {}

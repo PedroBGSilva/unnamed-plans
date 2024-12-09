@@ -15,6 +15,7 @@ export class LoginPage implements OnInit {
   toastMessage: string = '';
   showToast: boolean = false;
   resetting: boolean = false;
+  signing: boolean = false;
   dismissButton = [{ text: '', role: 'cancel' }];
 
   constructor(
@@ -41,6 +42,10 @@ export class LoginPage implements OnInit {
     this.resetting = true;
   }
 
+  toggleSignUp() {
+    this.signing = true;
+  }
+
   resetPassword(email: string) {
     this.authService.resetPassword(email);
     this.toastMessage = this.translateService.instant('LOGIN.EMAIL_SENT');
@@ -48,7 +53,13 @@ export class LoginPage implements OnInit {
     this.resetting = false;
   }
 
+  signup(event: { email: string, password: string }) {
+    this.authService.signup(event.email, event.password);
+    this.signing = false;
+  }
+
   back() {
     this.resetting = false;
+    this.signing = false;
   }
 }

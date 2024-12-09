@@ -30,9 +30,9 @@
     </div>
   </ion-tab>
   <ion-tab tab="profile">
-    <div id="profile-page">
-      <!-- <profile></profile> -->
-    </div>
+    <ion-content>
+      <app-profile *ngIf="user" [user]="user"></app-profile>
+    </ion-content>
   </ion-tab>
   <ion-tab tab="settings">
     <ion-content>

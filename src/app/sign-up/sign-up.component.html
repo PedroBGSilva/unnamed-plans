@@ -1,0 +1,32 @@
+<form #signupForm="ngForm">
+  <ion-input type="text" label="{{ 'LOGIN.FIRST_NAME' | translate }}" labelPlacement="stacked"
+    placeholder="{{ 'LOGIN.FIRST_NAME_PLACEHOLDER' | translate }}" [(ngModel)]="name" name="name" required>
+  </ion-input>
+  <ion-input type="text" label="{{ 'LOGIN.LAST_NAME' | translate }}" labelPlacement="stacked"
+    placeholder="{{ 'LOGIN.LAST_NAME_PLACEHOLDER' | translate }}" [(ngModel)]="name2" name="name2" text required>
+  </ion-input>
+  <ion-input type="email" label="{{ 'LOGIN.EMAIL' | translate }}" labelPlacement="stacked"
+    placeholder="{{ 'LOGIN.EMAIL_PLACEHOLDER' | translate }}" [(ngModel)]="email" name="email"
+    errorText="{{ 'LOGIN.INVALID_EMAIL' | translate }}" email autocomplete="email" required>
+  </ion-input>
+  <ion-input type="email" label="{{ 'LOGIN.EMAIL_CONFIRM' | translate }}" labelPlacement="stacked"
+    placeholder="{{ 'LOGIN.EMAIL_PLACEHOLDER' | translate }}" [(ngModel)]="email2" name="email2"
+    errorText="{{ 'LOGIN.INVALID_EMAIL' | translate }}" email required>
+  </ion-input>
+  <ion-input type="password" label="{{ 'LOGIN.PASSWORD' | translate }}" labelPlacement="stacked"
+    placeholder="{{ 'LOGIN.PASSWORD_PLACEHOLDER' | translate }}" [(ngModel)]="password" name="password"
+    autocomplete="current-password" required>
+    <ion-input-password-toggle slot="end"></ion-input-password-toggle>
+  </ion-input>
+  <ion-input type="password" label="{{ 'LOGIN.PASSWORD_CONFIRM' | translate }}" labelPlacement="stacked"
+    placeholder="{{ 'LOGIN.PASSWORD_PLACEHOLDER' | translate }}" [(ngModel)]="password2" name="password2" required>
+    <ion-input-password-toggle slot="end"></ion-input-password-toggle>
+  </ion-input>
+  <div class="d-flex flex-column align-items-center">
+    <ion-button type="submit" shape="round" [disabled]="signupForm.invalid" (click)="regist()" class="pt-3 w-50">
+      {{ 'LOGIN.SIGN_UP' | translate }}
+    </ion-button>
+  </div>
+</form>
+<ion-toast [isOpen]="showToast" [message]="toastMessage" [duration]="2000" [buttons]="dismissButton"
+  (didDismiss)="showToast = false"></ion-toast>

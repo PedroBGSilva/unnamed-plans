@@ -7,7 +7,8 @@ import {
   browserLocalPersistence,
   sendPasswordResetEmail,
   onAuthStateChanged,
-  User
+  User,
+  createUserWithEmailAndPassword
 } from 'firebase/auth';
 import { BehaviorSubject } from 'rxjs';
 
@@ -32,6 +33,17 @@ export class AuthService {
             }).catch((error) => {
               reject(error);
             });
+        }).catch((error) => {
+          reject(error);
+        });
+    });
+  }
+
+  signup(email: string, password: string) {
+    return new Promise((resolve, reject) => {
+      createUserWithEmailAndPassword(this.auth, email, password)
+        .then((user) => {
+          resolve(user)
         }).catch((error) => {
           reject(error);
         });
