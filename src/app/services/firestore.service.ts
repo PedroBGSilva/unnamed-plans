@@ -1,5 +1,12 @@
 import { Injectable } from '@angular/core';
-import { getFirestore, getDocs, collection, query, where } from "firebase/firestore";
+import {
+  getFirestore,
+  getDocs,
+  addDoc,
+  collection,
+  query,
+  where
+} from "firebase/firestore";
 
 @Injectable({
   providedIn: 'root'
@@ -19,6 +26,18 @@ export class FirestoreService {
           const document = snapshot.empty ? [] : snapshot.docs[0].data();
           resolve(document);
         }).catch((error: any) => {
+          reject(error);
+        });
+    });
+  }
+
+  addDocument(collection: string, document: {}) {
+    const collectionRef = this.getCollection(collection);
+    return new Promise((resolve, reject) => {
+      addDoc(collectionRef, document)
+        .then((result) => {
+          resolve(result);
+        }).catch((error) => {
           reject(error);
         });
     });

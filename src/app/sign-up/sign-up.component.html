@@ -1,9 +1,9 @@
 <form #signupForm="ngForm">
   <ion-input type="text" label="{{ 'LOGIN.FIRST_NAME' | translate }}" labelPlacement="stacked"
-    placeholder="{{ 'LOGIN.FIRST_NAME_PLACEHOLDER' | translate }}" [(ngModel)]="name" name="name" required>
+    placeholder="{{ 'LOGIN.FIRST_NAME_PLACEHOLDER' | translate }}" [(ngModel)]="firstName" name="firstName" required>
   </ion-input>
   <ion-input type="text" label="{{ 'LOGIN.LAST_NAME' | translate }}" labelPlacement="stacked"
-    placeholder="{{ 'LOGIN.LAST_NAME_PLACEHOLDER' | translate }}" [(ngModel)]="name2" name="name2" text required>
+    placeholder="{{ 'LOGIN.LAST_NAME_PLACEHOLDER' | translate }}" [(ngModel)]="lastName" name="lastName" text required>
   </ion-input>
   <ion-input type="email" label="{{ 'LOGIN.EMAIL' | translate }}" labelPlacement="stacked"
     placeholder="{{ 'LOGIN.EMAIL_PLACEHOLDER' | translate }}" [(ngModel)]="email" name="email"

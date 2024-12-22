@@ -16,8 +16,8 @@ export class SignUpComponent implements OnInit {
   password: string = '';
   email2: string = '';
   email: string = '';
-  name2: string = '';
-  name: string = '';
+  firstName: string = '';
+  lastName: string = '';
   birthday: Date = new Date();
 
   constructor(
@@ -34,7 +34,13 @@ export class SignUpComponent implements OnInit {
       this.toastMessage = this.translateService.instant('SIGNUP.PASSWORD_ERROR');
       this.showToast = true;
     } else {
-      this.signup.emit({ email: this.email, password: this.password });
+      this.signup.emit({
+        email: this.email,
+        password: this.password,
+        firstName: this.firstName,
+        lastName: this.lastName,
+        birthday: this.birthday
+      });
     }
   }
 
