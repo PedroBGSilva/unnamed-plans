@@ -22,7 +22,8 @@
     },
     "SIGNUP": {
         "EMAIL_ERROR": "The emails don't match!", 
-        "PASSWORD_ERROR": "The passwords don't match!"
+        "PASSWORD_ERROR": "The passwords don't match!",
+        "BIRTHDAY": "Birthday"
     },
     "FEED": {
         "FEED": "Feed"
