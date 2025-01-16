@@ -9,29 +9,52 @@ import { FirestoreService } from '../services/firestore.service';
 export class ProfileComponent implements OnInit {
   @Input() user: any;
 
-  userBirthDay: Date = new Date();
-  userEmail: string = '';
-  userPhone: string = '';
-  userName: string = '';
+  profile: any = {
+    ref: '',
+    fistName: '',
+    lastName: '',
+    birthday: new Date(),
+    phone: '',
+    email: '',
+    edit: false
+  }
 
   constructor(
     private firestoreService: FirestoreService
   ) { }
 
   ngOnInit() {
-    this.userEmail = this.user.email;
-    this.firestoreService.getDocument('users', 'email', this.userEmail)
+    this.profile.email = this.user.email;
+    this.firestoreService.getDocument('users', 'email', this.user.email)
       .then((result: any) => {
-        this.userName = result.firstName + ' ' + result.lastName;
-        this.userBirthDay = new Date(result.birthday.seconds * 1000 + Math.floor(result.birthday.nanoseconds / 1e6));
-        this.userPhone = result.phone;
-      }).catch((error) => {
-
-      });
+        this.profile.ref = result.ref;
+        this.profile.firstName = result.data.firstName;
+        this.profile.lastName = result.data.lastName;
+        this.profile.phone = result.data.phone;
+        this.profile.email = result.data.email;
+        this.profile.birthday = new Date(result.data.birthday.seconds * 1000 + Math.floor(result.data.birthday.nanoseconds / 1e6));
+      }).catch(() => { });
   }
 
   edit() {
+    this.profile.birthday = this.profile.birthday.toISOString();
+    this.profile.edit = true;
+  }
 
+  save() {
+    this.profile.birthday = new Date(this.profile.birthday);
+    this.firestoreService.updateDocument(this.profile.ref, this.processData());
+    this.profile.edit = false;
+  }
+
+  private processData() {
+    const data: any = {
+      firstName: this.profile.firstName,
+      lastName: this.profile.lastName,
+      birthday: this.profile.birthday,
+      phone: this.profile.phone
+    }
+    return data;
   }
 
 }

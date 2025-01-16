@@ -34,8 +34,10 @@
     "PROFILE": {
         "PROFILE": "Profile",
         "PHONE": "Phone number",
+        "PHONE_PLACEHOLDER": "Insert your phone number",
         "BIRTHDAY": "Birthday",
-        "EDIT": "Edit"
+        "EDIT": "Edit",
+        "SAVE": "Save"
     },
     "SETTINGS": {
         "SETTINGS": "Settings",
