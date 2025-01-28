@@ -1,0 +1,91 @@
+<div id="profile-tab" class="ion-padding h-100">
+  <!-- PROFILE -->
+  <ng-content *ngIf="!profile.edit; else editing">
+    <!-- ICON -->
+    <div class="d-flex flex-column align-items-center justify-content-center h-25">
+      <ion-icon name="person-circle-outline" style="font-size: 90px;" class="pb-2"></ion-icon>
+      <p>{{ profile.firstName + ' ' + profile.lastName }}</p>
+    </div>
+    <!-- BIRTHDAY -->
+    <ion-item>
+      <ion-label>
+        <label for="birthday">{{ 'PROFILE.BIRTHDAY' | translate }}</label>
+        <p id="birthday">{{ profile.birthday | date: 'dd MMMM yyyy' }}</p>
+      </ion-label>
+    </ion-item>
+    <!-- PHONE -->
+    <ion-item *ngIf="profile.phone">
+      <ion-label>
+        <label for="phone">{{ 'PROFILE.PHONE' | translate }}</label>
+        <p id="phone">{{ profile.phone }}</p>
+      </ion-label>
+    </ion-item>
+    <!-- EMAIL -->
+    <ion-item class="smooth-border-bottom">
+      <ion-label>
+        <label for="email">{{ 'LOGIN.EMAIL' | translate }}</label>
+        <p id="email">{{ profile.email }}</p>
+      </ion-label>
+    </ion-item>
+    <div class="d-flex justify-content-center mt-5">
+      <ion-button shape="round" (click)="edit()" class="w-50">
+        {{ 'PROFILE.EDIT' | translate }}
+      </ion-button>
+    </div>
+  </ng-content>
+  <!-- EDIT -->
+  <ng-template #editing>
+    <!-- ICON -->
+    <div class="d-flex flex-column align-items-center justify-content-center h-25">
+      <!-- <input type="file" id="fileInput" (change)="onFileSelected($event)" accept="image/*" style="display: none;" /> -->
+      <label for="fileInput" style="cursor: pointer;">
+        <ion-icon *ngIf="!selectedImage" name="person-circle-outline" style="font-size: 90px;" class="pb-2"></ion-icon>
+        <div *ngIf="selectedImage" class="p-2">
+          <img [src]="selectedImage" alt="Selected Image" style="width: 80px; height: 80px; border-radius: 50%;" />
+        </div>
+      </label>
+      <p>{{ profile.firstName + ' ' + profile.lastName }}</p>
+    </div>
+    <form #profileForm="ngForm">
+      <!-- FIRST NAME -->
+      <ion-item class="smooth-border-top">
+        <ion-input type="text" label="{{ 'LOGIN.FIRST_NAME' | translate }}" labelPlacement="stacked"
+          placeholder="{{ 'LOGIN.FIRST_NAME_PLACEHOLDER' | translate }}" [(ngModel)]="profile.firstName"
+          name="firstName" required>
+        </ion-input>
+      </ion-item>
+      <!-- LAST NAME -->
+      <ion-item>
+        <ion-input type="text" label="{{ 'LOGIN.LAST_NAME' | translate }}" labelPlacement="stacked"
+          placeholder="{{ 'LOGIN.LAST_NAME_PLACEHOLDER' | translate }}" [(ngModel)]="profile.lastName" name="lastName"
+          text required>
+        </ion-input>
+      </ion-item>
+      <!-- BIRTHDAY -->
+      <ion-item>
+        <ion-label position="stacked">{{ 'SIGNUP.BIRTHDAY' | translate }}</ion-label>
+        <ion-datetime-button datetime="datetime" class="py-2"></ion-datetime-button>
+        <ion-modal [keepContentsMounted]="true">
+          <ng-template>
+            <ion-datetime id="datetime" presentation="date" [(ngModel)]="profile.birthday"
+              name="birthday"></ion-datetime>
+          </ng-template>
+        </ion-modal>
+      </ion-item>
+      <!-- PHONE -->
+      <ion-item class="smooth-border-bottom">
+        <ion-label>
+          <ion-input type="number" label="{{ 'PROFILE.PHONE' | translate }}" labelPlacement="stacked"
+            placeholder="{{ 'PROFILE.PHONE_PLACEHOLDER' | translate }}" [(ngModel)]="profile.phone" name="phone">
+          </ion-input>
+        </ion-label>
+      </ion-item>
+      <!-- BUTTON -->
+      <div class="d-flex justify-content-center mt-5">
+        <ion-button type="submit" shape="round" (click)="save()" [disabled]="profileForm.invalid" class="w-50">
+          {{ 'PROFILE.SAVE' | translate }}
+        </ion-button>
+      </div>
+    </form>
+  </ng-template>
+</div>

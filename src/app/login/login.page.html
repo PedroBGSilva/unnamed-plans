@@ -1,4 +1,4 @@
-<ion-header *ngIf="resetting">
+<ion-header *ngIf="resetting || signing">
   <ion-toolbar>
     <ion-buttons slot="start">
       <ion-button (click)="back()">
@@ -9,7 +9,7 @@
 </ion-header>
 <ion-content>
   <div class="d-flex align-items-center justify-content-center h-100">
-    <ng-content *ngIf="!resetting; else elseBlock">
+    <ng-content *ngIf="!resetting && !signing; else elseBlock">
       <form #loginForm="ngForm" class="w-75">
         <ion-item class="smooth-border-top">
           <ion-input type="email" label="{{ 'LOGIN.EMAIL' | translate }}" labelPlacement="stacked"
@@ -32,13 +32,14 @@
             {{ 'LOGIN.LOGIN' | translate }}
           </ion-button>
           <p class="pt-2">{{ 'LOGIN.NO_ACCOUNT' | translate }}
-            <a (click)="true" class="clickable">{{ 'LOGIN.SIGN_UP' | translate }}</a>
+            <a (click)="toggleSignUp()" class="clickable">{{ 'LOGIN.SIGN_UP' | translate }}</a>
           </p>
         </div>
       </form>
     </ng-content>
     <ng-template #elseBlock>
-      <app-reset-password (resetPassword)="resetPassword($event)" class="w-75"></app-reset-password>
+      <app-reset-password *ngIf="resetting" (resetPassword)="resetPassword($event)" class="w-75"></app-reset-password>
+      <app-sign-up *ngIf="signing" (signup)="signup($event)" class="w-75"></app-sign-up>
     </ng-template>
   </div>
   <ion-toast [isOpen]="showToast" [message]="toastMessage" [duration]="2000" [buttons]="dismissButton"

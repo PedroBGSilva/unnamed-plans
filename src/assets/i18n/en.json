@@ -3,16 +3,27 @@
     "LOGIN": {
         "EMAIL": "Email", 
         "EMAIL_PLACEHOLDER": "Enter your email here",
+        "EMAIL_CONFIRM": "Email confirmation",
         "INVALID_EMAIL": "Invalid email",
         "PASSWORD": "Password",
         "PASSWORD_PLACEHOLDER": "Enter your password here",
         "PASSWORD_RESET": "Forgot your password?",
+        "PASSWORD_CONFIRM": "Password confirmation",
         "RESET_PASSWORD": "Reset password",
         "LOGIN": "Login",
         "INVALID": "Invalid credentials",
         "SIGN_UP": "Sign Up",
         "NO_ACCOUNT": "Don't have an account?",
-        "EMAIL_SENT": "Verify your email"
+        "EMAIL_SENT": "Verify your email",
+        "FIRST_NAME": "First name",
+        "FIRST_NAME_PLACEHOLDER": "Enter your first name",
+        "LAST_NAME": "Last name",
+        "LAST_NAME_PLACEHOLDER": "Enter your last name"
+    },
+    "SIGNUP": {
+        "EMAIL_ERROR": "The emails don't match!", 
+        "PASSWORD_ERROR": "The passwords don't match!",
+        "BIRTHDAY": "Birthday"
     },
     "FEED": {
         "FEED": "Feed"
@@ -21,7 +32,12 @@
         "COMMUNITIES": "Communities"
     },
     "PROFILE": {
-        "PROFILE": "Profile"
+        "PROFILE": "Profile",
+        "PHONE": "Phone number",
+        "PHONE_PLACEHOLDER": "Insert your phone number",
+        "BIRTHDAY": "Birthday",
+        "EDIT": "Edit",
+        "SAVE": "Save"
     },
     "SETTINGS": {
         "SETTINGS": "Settings",
