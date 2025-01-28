@@ -63,7 +63,7 @@ export class LoginPage implements OnInit {
           firstName: event.firstName,
           lastName: event.lastName,
           birthday: event.birthday,
-          phone: ''
+          phone: null
         }
         this.firestoreService.addDocument('users', user);
       }).catch(() => { });
