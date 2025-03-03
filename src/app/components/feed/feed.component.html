@@ -1,0 +1,7 @@
+<div id="feed-tab" class="ion-padding h-100">
+  <div class="d-flex flex-column align-items-center overflow-auto">
+    <ng-content *ngFor="let event of events">
+      <event-card [data]="event"></event-card>
+    </ng-content>
+  </div>
+</div>

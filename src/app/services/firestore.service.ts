@@ -34,6 +34,23 @@ export class FirestoreService {
     });
   }
 
+  getDocuments(collection: string, key: string, value: string) {
+    return new Promise((resolve, reject) => {
+      const q = query(this.getCollection(collection), where(key, '==', value));
+      getDocs(q)
+        .then((snapshot: any) => {
+          const results = snapshot.docs.map((doc: any) => ({
+            ref: doc.ref,
+            data: doc.data()
+          }));
+          resolve(results);
+        })
+        .catch((error: any) => {
+          reject(error);
+        });
+    });
+  }
+
   updateDocument(ref: DocumentReference, data: any) {
     return new Promise((resolve, reject) => {
       updateDoc(ref, data)
