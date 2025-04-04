@@ -6,7 +6,9 @@ import { FormsModule } from '@angular/forms';
 import { NgModule } from '@angular/core';
 import { HomePage } from './home.page';
 
+import { CommunitiesComponent } from '../communities/communities.component';
 import { EventCardComponent } from '../event-card/event-card.component';
+import { EventInfoComponent } from '../event-info/event-info.component';
 import { SettingsComponent } from '../settings/settings.component';
 import { ProfileComponent } from '../profile/profile.component';
 import { FeedComponent } from '../feed/feed.component';
@@ -25,7 +27,9 @@ import { FeedComponent } from '../feed/feed.component';
     SettingsComponent,
     ProfileComponent,
     FeedComponent,
-    EventCardComponent
+    EventCardComponent,
+    CommunitiesComponent,
+    EventInfoComponent
   ]
 })
 export class HomePageModule {}

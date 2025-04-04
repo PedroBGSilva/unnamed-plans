@@ -1,5 +1,5 @@
 import { Component, Input, OnInit } from '@angular/core';
-import { AppEvent } from 'src/app/interfaces/event.interface';
+import { AppEventData } from 'src/app/interfaces/event.interface';
 
 @Component({
   selector: 'event-card',
@@ -7,7 +7,7 @@ import { AppEvent } from 'src/app/interfaces/event.interface';
   styleUrls: ['./event-card.component.scss'],
 })
 export class EventCardComponent implements OnInit {
-  @Input() data!: AppEvent;
+  @Input() data!: AppEventData;
 
   constructor() { }
 

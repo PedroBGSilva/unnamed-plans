@@ -7,7 +7,8 @@ import {
   query,
   where,
   updateDoc,
-  DocumentReference
+  DocumentReference,
+  orderBy
 } from "firebase/firestore";
 
 @Injectable({
@@ -34,9 +35,13 @@ export class FirestoreService {
     });
   }
 
-  getDocuments(collection: string, key: string, value: string) {
+  getDocuments(collection: string, key: string, value: string, isArray?: boolean, orderByKey?: string) {
     return new Promise((resolve, reject) => {
-      const q = query(this.getCollection(collection), where(key, '==', value));
+      const constraints: any = [where(key, isArray ? 'array-contains' : '==', value)];
+      if (orderByKey) {
+        constraints.push(orderBy(orderByKey));
+      }
+      const q = query(this.getCollection(collection), ...constraints);
       getDocs(q)
         .then((snapshot: any) => {
           const results = snapshot.docs.map((doc: any) => ({
