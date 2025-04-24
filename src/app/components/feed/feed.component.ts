@@ -17,7 +17,7 @@ export class FeedComponent implements OnInit {
   futureEvents: AppEvent[] = [];
   oldEvents: AppEvent[] = [];
   invites: AppEvent[] = [];
-  selectedEvent?: AppEventData;
+  selectedEvent!: AppEventData;
 
   today = new Date();
 

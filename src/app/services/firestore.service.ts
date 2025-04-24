@@ -80,6 +80,24 @@ export class FirestoreService {
     });
   }
 
+  getUserName(email: string): Promise<string> {
+    return new Promise((resolve, reject) => {
+      const q = query(this.getCollection('users'), where('email', '==', email));
+      getDocs(q)
+        .then((snapshot: any) => {
+          if (snapshot.empty) {
+            resolve('');
+          } else {
+            const data = snapshot.docs[0].data();
+            const fullName = `${data.firstName} ${data.lastName}`;
+            resolve(fullName);
+          }
+        }).catch((error: any) => {
+          reject(error);
+        });
+    });
+  }
+
   private getCollection(name: string) {
     return collection(this.db, name);
   }
