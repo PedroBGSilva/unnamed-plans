@@ -7,7 +7,7 @@ import { IonicModule } from '@ionic/angular';
 import { LoginPageRoutingModule } from './login-routing.module';
 
 import { LoginPage } from './login.page';
-import { AuthService } from '../services/auth.service';
+import { AuthService } from '../../services/auth.service';
 import { TranslateModule } from '@ngx-translate/core';
 import { ResetPasswordComponent } from '../reset-password/reset-password.component';
 import { SignUpComponent } from '../sign-up/sign-up.component';

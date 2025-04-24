@@ -26,10 +26,13 @@
         "BIRTHDAY": "Birthday"
     },
     "FEED": {
-        "FEED": "Feed"
+        "FEED": "Feed",
+        "UPCOMING": "Upcoming",
+        "HISTORY": "History"
     },
     "COMMUNITIES": {
-        "COMMUNITIES": "Communities"
+        "COMMUNITIES": "Communities",
+        "SOON": "Coming soon..."
     },
     "PROFILE": {
         "PROFILE": "Profile",

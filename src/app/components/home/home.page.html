@@ -20,14 +20,14 @@
   </ion-tab-bar>
   <!-- CONTENT -->
   <ion-tab tab="feed">
-    <div id="feed-page">
-      <!-- <feed></feed> -->
-    </div>
+    <ion-content>
+      <feed *ngIf="user" [user]="user"></feed>
+    </ion-content>
   </ion-tab>
   <ion-tab tab="communities">
-    <div id="communities-page">
-      <!-- <communities></communities> -->
-    </div>
+    <ion-content>
+      <communities></communities>
+    </ion-content>
   </ion-tab>
   <ion-tab tab="profile">
     <ion-content>

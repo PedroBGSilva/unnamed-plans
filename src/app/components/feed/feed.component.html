@@ -1,0 +1,40 @@
+<ion-header>
+  <ion-toolbar>
+    <ng-content *ngIf="eventOpen; else elseBlock">
+      <ion-buttons slot="start">
+        <ion-button (click)="closeEvent()">
+          <ion-icon name="arrow-back"></ion-icon>
+        </ion-button>
+      </ion-buttons>
+    </ng-content>
+    <ng-template #elseBlock>
+      <ion-segment [(ngModel)]="segmentSelected">
+        <ion-segment-button value="future">
+          <ion-label>{{ 'FEED.UPCOMING' | translate }}</ion-label>
+        </ion-segment-button>
+        <ion-segment-button value="old">
+          <ion-label>{{ 'FEED.HISTORY' | translate }}</ion-label>
+        </ion-segment-button>
+      </ion-segment>
+    </ng-template>
+  </ion-toolbar>
+</ion-header>
+<div id="feed-tab" class="ion-padding h-100">
+  <ng-content *ngIf="eventOpen; else elseBlock2">
+    <event-info [event]="selectedEvent"></event-info>
+  </ng-content>
+  <ng-template #elseBlock2>
+    <div class="d-flex flex-column align-items-center overflow-auto">
+      <ng-content *ngIf="segmentSelected === 'future'">
+        <ng-content *ngFor="let event of futureEvents">
+          <event-card id="{{ event.ref.id }}" [data]="event.data" (click)="openEvent(event.data)"></event-card>
+        </ng-content>
+      </ng-content>
+      <ng-content *ngIf="segmentSelected === 'old'">
+        <ng-content *ngFor="let event of oldEvents">
+          <event-card id="{{ event.ref.id }}" [data]="event.data" (click)="openEvent(event.data)"></event-card>
+        </ng-content>
+      </ng-content>
+    </div>
+  </ng-template>
+</div>

@@ -1,7 +1,7 @@
 import { Component, Input, OnInit } from '@angular/core';
-import { FirestoreService } from '../services/firestore.service';
-import { DatabaseService } from '../services/database.service';
-import { StorageService } from '../services/storage.service';
+import { FirestoreService } from '../../services/firestore.service';
+import { DatabaseService } from '../../services/database.service';
+import { StorageService } from '../../services/storage.service';
 
 @Component({
   selector: 'app-profile',
