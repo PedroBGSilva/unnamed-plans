@@ -21,11 +21,19 @@
 </ion-header>
 <div id="feed-tab" class="ion-padding h-100">
   <ng-content *ngIf="eventOpen; else elseBlock2">
-    <event-info [event]="selectedEvent"></event-info>
+    <ng-content *ngIf="selectedEvent; else elseBlock3">
+      <event-info [event]="selectedEvent"></event-info>
+    </ng-content>
+    <ng-template #elseBlock3>
+      <create-event></create-event>
+    </ng-template>
   </ng-content>
   <ng-template #elseBlock2>
     <div class="d-flex flex-column align-items-center overflow-auto">
       <ng-content *ngIf="segmentSelected === 'future'">
+        <ion-button id="create-event" shape="round" fill="clear" style="font-size: 30px;" (click)="createEvent()">
+          <ion-icon name="add-circle-outline"></ion-icon>
+        </ion-button>
         <ng-content *ngFor="let event of futureEvents">
           <event-card id="{{ event.ref.id }}" [data]="event.data" (click)="openEvent(event.data)"></event-card>
         </ng-content>

@@ -17,7 +17,7 @@ export class FeedComponent implements OnInit {
   futureEvents: AppEvent[] = [];
   oldEvents: AppEvent[] = [];
   invites: AppEvent[] = [];
-  selectedEvent!: AppEventData;
+  selectedEvent!: AppEventData | null;
 
   today = new Date();
 
@@ -44,6 +44,11 @@ export class FeedComponent implements OnInit {
 
   closeEvent() {
     this.eventOpen = false;
+  }
+
+  createEvent() {
+    this.selectedEvent = null;
+    this.eventOpen = true;
   }
 
   private getCreatedEvents() {

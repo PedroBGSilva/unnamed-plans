@@ -1,0 +1,14 @@
+<form [formGroup]="eventForm">
+  <!-- NAME -->
+  <ion-item class="smooth-border-top">
+    <ion-input type="text" label="{{ 'EVENT.NAME' | translate }}" labelPlacement="stacked"
+      placeholder="{{ 'EVENT.NAME_PLACEHOLDER' | translate }}" formControlName="name">
+    </ion-input>
+  </ion-item>
+  <!-- DESCRIPTION -->
+  <ion-item>
+    <ion-input type="text" label="{{ 'EVENT.DESCRIPTION' | translate }}" labelPlacement="stacked"
+      placeholder="{{ 'EVENT.DESCRIPTION_PLACEHOLDER' | translate }}" formControlName="name">
+    </ion-input>
+  </ion-item>
+</form>

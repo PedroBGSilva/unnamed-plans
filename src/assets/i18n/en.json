@@ -47,5 +47,11 @@
         "LOGOUT": "Logout",
         "LOGGED_OUT": "Successful Log Out",
         "LOGOUT_ERROR": "Error logging out, please try again"
+    },
+    "EVENT": {
+        "NAME": "Name",
+        "NAME_PLACEHOLDER": "Insert the title of the event",
+        "DESCRIPTION": "Description",
+        "DESCRIPTION_PLACEHOLDER": "Describe the event"
     }
 }
