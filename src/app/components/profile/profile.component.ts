@@ -4,9 +4,10 @@ import { DatabaseService } from '../../services/database.service';
 import { StorageService } from '../../services/storage.service';
 
 @Component({
-  selector: 'app-profile',
-  templateUrl: './profile.component.html',
-  styleUrls: ['./profile.component.scss'],
+    selector: 'app-profile',
+    templateUrl: './profile.component.html',
+    styleUrls: ['./profile.component.scss'],
+    standalone: false
 })
 export class ProfileComponent implements OnInit {
   @Input() user: any;

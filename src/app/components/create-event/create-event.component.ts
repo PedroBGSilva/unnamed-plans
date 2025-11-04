@@ -2,9 +2,10 @@ import { Component, OnInit } from '@angular/core';
 import { FormGroup, FormControl, FormArray } from '@angular/forms';
 
 @Component({
-  selector: 'create-event',
-  templateUrl: './create-event.component.html',
-  styleUrls: ['./create-event.component.scss'],
+    selector: 'create-event',
+    templateUrl: './create-event.component.html',
+    styleUrls: ['./create-event.component.scss'],
+    standalone: false
 })
 export class CreateEventComponent implements OnInit {
   eventForm!: FormGroup

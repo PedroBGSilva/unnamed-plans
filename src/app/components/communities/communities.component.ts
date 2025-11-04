@@ -1,9 +1,10 @@
 import { Component, OnInit } from '@angular/core';
 
 @Component({
-  selector: 'communities',
-  templateUrl: './communities.component.html',
-  styleUrls: ['./communities.component.scss'],
+    selector: 'communities',
+    templateUrl: './communities.component.html',
+    styleUrls: ['./communities.component.scss'],
+    standalone: false
 })
 export class CommunitiesComponent  implements OnInit {
 
