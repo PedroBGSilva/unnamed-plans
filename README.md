@@ -6,7 +6,7 @@ Description.
 
 - install nodeJS
   ```bash
-  nvm install 20.18
+  nvm install 22.12
 
 - install ionic
   ```bash
