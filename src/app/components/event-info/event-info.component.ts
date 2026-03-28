@@ -3,9 +3,10 @@ import { AppEventData } from '../../interfaces/event.interface';
 import { FirestoreService } from '../../services/firestore.service';
 
 @Component({
-  selector: 'event-info',
-  templateUrl: './event-info.component.html',
-  styleUrls: ['./event-info.component.scss'],
+    selector: 'event-info',
+    templateUrl: './event-info.component.html',
+    styleUrls: ['./event-info.component.scss'],
+    standalone: false
 })
 export class EventInfoComponent implements OnInit {
   @Input() event!: AppEventData;

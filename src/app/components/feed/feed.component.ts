@@ -3,9 +3,10 @@ import { FirestoreService } from '../../services/firestore.service';
 import { AppEvent, AppEventData } from '../../interfaces/event.interface';
 
 @Component({
-  selector: 'feed',
-  templateUrl: './feed.component.html',
-  styleUrls: ['./feed.component.scss'],
+    selector: 'feed',
+    templateUrl: './feed.component.html',
+    styleUrls: ['./feed.component.scss'],
+    standalone: false
 })
 export class FeedComponent implements OnInit {
   @Input() user: any;
@@ -17,7 +18,7 @@ export class FeedComponent implements OnInit {
   futureEvents: AppEvent[] = [];
   oldEvents: AppEvent[] = [];
   invites: AppEvent[] = [];
-  selectedEvent!: AppEventData;
+  selectedEvent!: AppEventData | null;
 
   today = new Date();
 
@@ -44,6 +45,11 @@ export class FeedComponent implements OnInit {
 
   closeEvent() {
     this.eventOpen = false;
+  }
+
+  createEvent() {
+    this.selectedEvent = null;
+    this.eventOpen = true;
   }
 
   private getCreatedEvents() {
