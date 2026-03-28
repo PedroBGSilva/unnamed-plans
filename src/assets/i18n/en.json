@@ -52,6 +52,8 @@
         "NAME": "Name",
         "NAME_PLACEHOLDER": "Insert the title of the event",
         "DESCRIPTION": "Description",
-        "DESCRIPTION_PLACEHOLDER": "Describe the event"
+        "DESCRIPTION_PLACEHOLDER": "Describe the event",
+        "DATE": "Date",
+        "CREATE": "Create"
     }
 }

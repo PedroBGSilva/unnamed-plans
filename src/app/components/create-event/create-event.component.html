@@ -1,4 +1,4 @@
-<form [formGroup]="eventForm">
+<form [formGroup]="eventForm" (ngSubmit)="onSubmit()">
   <!-- NAME -->
   <ion-item class="smooth-border-top">
     <ion-input type="text" label="{{ 'EVENT.NAME' | translate }}" labelPlacement="stacked"
@@ -6,9 +6,14 @@
     </ion-input>
   </ion-item>
   <!-- DESCRIPTION -->
-  <ion-item>
+  <ion-item class="smooth-border-bottom">
     <ion-input type="text" label="{{ 'EVENT.DESCRIPTION' | translate }}" labelPlacement="stacked"
-      placeholder="{{ 'EVENT.DESCRIPTION_PLACEHOLDER' | translate }}" formControlName="name">
+      placeholder="{{ 'EVENT.DESCRIPTION_PLACEHOLDER' | translate }}" formControlName="description">
     </ion-input>
   </ion-item>
+  <div class="d-flex justify-content-center mt-5">
+    <ion-button type="submit" shape="round" class="w-50">
+      {{ 'EVENT.CREATE' | translate }}
+    </ion-button>
+  </div>
 </form>
